@@ -8,6 +8,10 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws ecr get-login-password --region $AWS_REGION | docker login --username AWS --password-stdin $ECR_REPOSITORY_URL
+  test:
+    commands:
+      - echo Running tests...
+      - npm test
   build:
     commands:
       - echo Build started on `date`
